@@ -1,0 +1,52 @@
+name: Bug report
+description: Search, verification, formatting, or QR behavior broke.
+title: "[bug] "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Remove exact addresses, cookies, account data, and order information before submitting.
+  - type: dropdown
+    id: command
+    attributes:
+      label: Affected command
+      options: [search, details, shortlist, location, agent workflow]
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options: [macOS, Linux, Windows, Other]
+    validations:
+      required: true
+  - type: input
+    id: python
+    attributes:
+      label: Python version
+      description: Output of `python3 --version`.
+    validations:
+      required: true
+  - type: input
+    id: revision
+    attributes:
+      label: Release or commit
+      description: For example `v0.1.0` or `git log -1 --format=%h`.
+    validations:
+      required: true
+  - type: textarea
+    id: command_line
+    attributes:
+      label: What you ran
+      description: Redact personal data and use a reproducible public product URL when possible.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Expected and actual behavior
+      description: Include the full traceback or error text when available.
+    validations:
+      required: true

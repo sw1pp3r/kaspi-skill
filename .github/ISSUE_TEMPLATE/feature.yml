@@ -1,0 +1,35 @@
+name: Feature request
+description: Suggest a focused improvement to the agent or CLI workflow.
+title: "[feature] "
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The project keeps bounded traffic, strict delivery gates, no exact-address storage, and no third-party Python runtime dependencies.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What shopping problem does this solve?
+      description: Give a concrete product request or failure mode.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed shape
+      description: Show the flag, output field, or agent behavior you expect.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence and privacy impact
+      description: Which page or response supplies the data, and does the change store or transmit anything new?
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: What workaround or narrower implementation did you try?
