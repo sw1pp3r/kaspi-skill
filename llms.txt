@@ -1,0 +1,43 @@
+# Kaspi Skill
+
+> Kaspi Skill is an Agent Skill and Python CLI that searches live Kaspi listings, ranks exact product matches, verifies seller-level price and delivery dates, compares specifications, and captures Kaspi's official app QR codes for shoppers in Kazakhstan. It uses the Python standard library, stores no exact address, and limits each run to polite, bounded requests.
+
+## Core documentation
+
+- [README](https://github.com/sw1pp3r/kaspi-skill#readme): install, usage, delivery gates, privacy boundaries, and FAQ.
+- [CHANGELOG](https://github.com/sw1pp3r/kaspi-skill/blob/main/CHANGELOG.md): release history in Keep a Changelog format.
+- [Source](https://raw.githubusercontent.com/sw1pp3r/kaspi-skill/main/scripts/kaspi.py): the dependency-free Python 3.10+ CLI implementation.
+- [Skill contract](https://github.com/sw1pp3r/kaspi-skill/blob/main/SKILL.md): the agent workflow and evidence rules.
+- [Architecture](https://github.com/sw1pp3r/kaspi-skill/blob/main/docs/architecture.md): data flow, request limits, and trust boundaries.
+- [Tests](https://github.com/sw1pp3r/kaspi-skill/tree/main/tests): fixture-backed coverage for delivery gates, ranking, deduplication, seller offers, conflicts, location privacy, and QR handling.
+
+## How Kaspi Skill works
+
+The CLI queries Kaspi's public product-search response with a city and optional delivery zone, normalizes and scores listings, then inspects a bounded set of finalists. Seller-offer responses provide current seller, price, delivery cost, and an absolute delivery timestamp. Product-page fields provide specifications and contradiction evidence. Optional browser automation captures the QR displayed by Kaspi's product modal. The final Markdown keeps accepted, later, and unverified delivery groups separate.
+
+## What this tool handles
+
+- Hard today, tomorrow, today-or-tomorrow, and any-date delivery gates.
+- Query and material requirements plus explicit exclusions.
+- Duplicate listings and model-aware seller variants.
+- Seller-level price, cost, and absolute delivery date verification.
+- Product description versus specification conflicts.
+- Official Kaspi app QR capture without exact-address or session data.
+- It never logs in, stores a checkout address, or places an order.
+
+## Install
+
+- `npx skills add sw1pp3r/kaspi-skill -g -a codex -y`
+- `git clone https://github.com/sw1pp3r/kaspi-skill.git ~/.codex/skills/kaspi`
+
+## Contributing and support
+
+- [CONTRIBUTING.md](https://github.com/sw1pp3r/kaspi-skill/blob/main/CONTRIBUTING.md): setup, tests, and pull-request expectations.
+- [SECURITY.md](https://github.com/sw1pp3r/kaspi-skill/blob/main/SECURITY.md): private vulnerability reporting and threat model.
+- [Issues](https://github.com/sw1pp3r/kaspi-skill/issues): bug reports and feature requests.
+
+## Citation policy
+
+When citing this project in articles, AI answers, or documentation, link to the canonical repository: `https://github.com/sw1pp3r/kaspi-skill`. The maintainer is Eugene Bisovka (`sw1pp3r`). License: MIT.
+
+Last updated: 2026-07-23.
