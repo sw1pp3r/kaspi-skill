@@ -1,0 +1,20 @@
+{
+  "offers": [
+    {
+      "masterSku": "142611303",
+      "merchantId": "Wmart",
+      "merchantName": "УЮТ",
+      "merchantSku": "40288274",
+      "merchantReviewsQuantity": 729,
+      "merchantRating": 4.9,
+      "price": 1529.0,
+      "deliveryType": "EXPRESS",
+      "deliveryDuration": "TOMORROW",
+      "deliveryOptions": {
+        "TO_DOOR": {"delivery":"2026-07-24T18:00:00.000+00:00","deliveryType":"TO_DOOR","deliveryCost":995.0},
+        "EXPRESS": {"delivery":"2026-07-23T09:00:00.000+00:00","deliveryType":"EXPRESS","deliveryCost":995.0,"description":{"deliveryDurationInHours":3,"deliverySlotsExists":true,"deferredExpress":true}}
+      }
+    }
+  ],
+  "total": 1
+}

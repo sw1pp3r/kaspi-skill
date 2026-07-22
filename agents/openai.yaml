@@ -1,0 +1,5 @@
+interface:
+  display_name: "Kaspi"
+  short_description: "Ищет товары, продавцов, доставку и QR Kaspi"
+  brand_color: "#F14635"
+  default_prompt: "Use $kaspi to find a decision-ready Kaspi shortlist with seller-verified delivery dates and official app QR codes."
