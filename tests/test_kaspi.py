@@ -149,7 +149,7 @@ class QrTests(unittest.TestCase):
 
 class RelevanceTests(unittest.TestCase):
     def setUp(self) -> None:
-        payload = json.loads((FIXTURES / "search_lopatka.json").read_text())
+        payload = json.loads((FIXTURES / "search_lopatka.json").read_text(encoding="utf-8"))
         self.items = [
             kaspi._normalize_item(item, "лопатка кухонная деревянная бук", "750000000")
             for item in payload["data"]
@@ -250,12 +250,12 @@ class LocationTests(unittest.TestCase):
             self.assertEqual(search_args.city_code, "750000000")
             self.assertEqual(search_args.city_name, "Алматы")
             self.assertEqual(search_args.zone, "Magnum_ZONE1")
-            self.assertNotIn("address", Path(config_path).read_text().lower())
+            self.assertNotIn("address", Path(config_path).read_text(encoding="utf-8").lower())
 
 
 class DetailsTests(unittest.TestCase):
     def test_product_context_and_conflicts_are_extracted(self) -> None:
-        page = (FIXTURES / "product_conflict.html").read_text()
+        page = (FIXTURES / "product_conflict.html").read_text(encoding="utf-8")
         product = kaspi._extract_json_ld(page)
         specs = kaspi._extract_specs(page)
         context = kaspi._extract_product_context(page, product)
@@ -266,7 +266,7 @@ class DetailsTests(unittest.TestCase):
         self.assertTrue(any("Материал" in warning for warning in warnings))
 
     def test_offer_normalization_has_seller_exact_date_and_evidence(self) -> None:
-        payload = json.loads((FIXTURES / "offers.json").read_text())
+        payload = json.loads((FIXTURES / "offers.json").read_text(encoding="utf-8"))
         local_now = datetime.fromisoformat("2026-07-22T12:00:00+05:00")
         offers = kaspi._normalize_offers(payload, ZoneInfo("Asia/Almaty"), local_now)
         selected = kaspi._select_offer(offers, "fast")
@@ -279,7 +279,7 @@ class DetailsTests(unittest.TestCase):
         self.assertIn("23 июля", selected["deliveryLabel"])
 
     def test_absolute_seller_date_overrides_stale_tomorrow_enum(self) -> None:
-        payload = json.loads((FIXTURES / "offers.json").read_text())
+        payload = json.loads((FIXTURES / "offers.json").read_text(encoding="utf-8"))
         payload = deepcopy(payload)
         payload["offers"][0]["deliveryOptions"]["EXPRESS"]["delivery"] = (
             "2026-07-24T09:00:00.000+00:00"

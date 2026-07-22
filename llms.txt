@@ -1,12 +1,12 @@
 # Kaspi Skill
 
-> Kaspi Skill is an Agent Skill and Python CLI that searches live Kaspi listings, ranks exact product matches, verifies seller-level price and delivery dates, compares specifications, and captures Kaspi's official app QR codes for shoppers in Kazakhstan. It uses the Python standard library, stores no exact address, and limits each run to polite, bounded requests.
+> Kaspi Skill is an Agent Skill and Python CLI that searches live Kaspi listings, ranks exact product matches, verifies seller-level price and delivery dates, compares specifications, and captures Kaspi's official app QR codes for shoppers in Kazakhstan. It uses standard-library APIs, stores no exact address, and limits each run to polite, bounded requests.
 
 ## Core documentation
 
 - [README](https://github.com/sw1pp3r/kaspi-skill#readme): install, usage, delivery gates, privacy boundaries, and FAQ.
 - [CHANGELOG](https://github.com/sw1pp3r/kaspi-skill/blob/main/CHANGELOG.md): release history in Keep a Changelog format.
-- [Source](https://raw.githubusercontent.com/sw1pp3r/kaspi-skill/main/scripts/kaspi.py): the dependency-free Python 3.10+ CLI implementation.
+- [Source](https://raw.githubusercontent.com/sw1pp3r/kaspi-skill/main/scripts/kaspi.py): the stdlib-first Python 3.10+ CLI implementation; Windows needs the IANA `tzdata` package.
 - [Skill contract](https://github.com/sw1pp3r/kaspi-skill/blob/main/SKILL.md): the agent workflow and evidence rules.
 - [Architecture](https://github.com/sw1pp3r/kaspi-skill/blob/main/docs/architecture.md): data flow, request limits, and trust boundaries.
 - [Tests](https://github.com/sw1pp3r/kaspi-skill/tree/main/tests): fixture-backed coverage for delivery gates, ranking, deduplication, seller offers, conflicts, location privacy, and QR handling.

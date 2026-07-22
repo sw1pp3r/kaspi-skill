@@ -1,6 +1,6 @@
 # Kaspi Skill
 
-> 🛒 Live Kaspi search with seller-verified delivery and official app QR codes. Python 3.10+. No runtime dependencies.
+> 🛒 Live Kaspi search with seller-verified delivery and official app QR codes. Python 3.10+. Stdlib-first.
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
@@ -8,7 +8,7 @@
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![GitHub stars](https://img.shields.io/github/stars/sw1pp3r/kaspi-skill?style=social)](https://github.com/sw1pp3r/kaspi-skill/stargazers)
 
-**Kaspi Skill is an Agent Skill and Python CLI that searches live Kaspi listings, ranks exact product matches, verifies seller-level price and delivery dates, compares specifications, and captures Kaspi's official app QR codes for shoppers in Kazakhstan. It uses the Python standard library, stores no exact address, and limits each run to polite, bounded requests.**
+**Kaspi Skill is an Agent Skill and Python CLI that searches live Kaspi listings, ranks exact product matches, verifies seller-level price and delivery dates, compares specifications, and captures Kaspi's official app QR codes for shoppers in Kazakhstan. It uses standard-library APIs, stores no exact address, and limits each run to polite, bounded requests.**
 
 Kaspi search cards are useful for discovery, but the cheapest card is not always the right SKU, seller, or delivery promise. This skill turns a shopping request into a short, decision-ready comparison with explicit evidence and a single recommendation.
 
@@ -78,7 +78,7 @@ git clone https://github.com/sw1pp3r/kaspi-skill.git ~/.codex/skills/kaspi
 python3 ~/.codex/skills/kaspi/scripts/kaspi.py --help
 ```
 
-Python 3.10 or newer is required. The core search, seller verification, and comparison flow has no third-party Python dependencies. Official QR capture additionally requires [agent-browser](https://github.com/vercel-labs/agent-browser); use `--qr-mode none` when it is not installed.
+Python 3.10 or newer is required. The core code uses standard-library APIs. Windows does not ship an IANA timezone database, so install the data package once with `python -m pip install tzdata`; macOS and mainstream Linux distributions normally provide it through the operating system. Official QR capture additionally requires [agent-browser](https://github.com/vercel-labs/agent-browser); use `--qr-mode none` when it is not installed.
 
 ## CLI usage
 

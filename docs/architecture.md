@@ -3,7 +3,7 @@
 Kaspi Skill has two layers:
 
 1. `SKILL.md` defines the agent workflow, evidence hierarchy, response shape, and safety boundaries.
-2. `scripts/kaspi.py` implements a dependency-free CLI that produces structured JSON, text, or decision-ready Markdown.
+2. `scripts/kaspi.py` implements a stdlib-first CLI that produces structured JSON, text, or decision-ready Markdown. Windows additionally needs the IANA `tzdata` package because the operating system does not ship that database.
 
 ## Data flow
 
