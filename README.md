@@ -1,6 +1,6 @@
 # Kaspi Skill
 
-> 🛒 Live Kaspi search with seller-verified delivery and official app QR codes. Python 3.10+. Stdlib-first.
+> 🛒 Live Kaspi search for Claude Code and Codex, with seller-verified delivery and official app QR codes. Python 3.10+. Stdlib-first.
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
@@ -21,16 +21,17 @@ Kaspi search cards are useful for discovery, but the cheapest card is not always
 
 ## Quick start
 
-Install the skill for Codex:
+Install the skill for Claude Code and Codex:
 
 ```bash
-npx skills add sw1pp3r/kaspi-skill -g -a codex -y
+npx skills add sw1pp3r/kaspi-skill -g -a claude-code codex -y
 ```
 
-Then ask:
+Then invoke `/kaspi` in Claude Code or mention `$kaspi` in Codex:
 
 ```text
-Use $kaspi to find a quiet laser printer with Wi-Fi under 100,000 ₸ in Almaty that can arrive tomorrow.
+Claude Code: /kaspi Find a quiet laser printer with Wi-Fi under 100,000 ₸ in Almaty that can arrive tomorrow.
+Codex: Use $kaspi to find a quiet laser printer with Wi-Fi under 100,000 ₸ in Almaty that can arrive tomorrow.
 ```
 
 The repository also exposes a standalone CLI:
@@ -62,8 +63,10 @@ The CLI is implemented with the [Python standard library](https://docs.python.or
 ### Agent skill
 
 ```bash
-npx skills add sw1pp3r/kaspi-skill -g -a codex -y
+npx skills add sw1pp3r/kaspi-skill -g -a claude-code codex -y
 ```
+
+The installer puts the same package in each agent's discoverable skill directory. Claude Code loads it as `/kaspi`; Codex exposes it as `$kaspi`. Both can also invoke it automatically from the natural-language triggers in `SKILL.md`.
 
 To inspect the package before installing:
 
@@ -71,12 +74,14 @@ To inspect the package before installing:
 npx skills add sw1pp3r/kaspi-skill --list
 ```
 
-### Manual
+### Agent compatibility
 
-```bash
-git clone https://github.com/sw1pp3r/kaspi-skill.git ~/.codex/skills/kaspi
-python3 ~/.codex/skills/kaspi/scripts/kaspi.py --help
-```
+| Agent | Explicit invocation | Personal skill location |
+|---|---|---|
+| Claude Code | `/kaspi` | `~/.claude/skills/kaspi` |
+| Codex | `$kaspi` | `~/.agents/skills/kaspi` |
+
+For a manual one-agent install, clone the repository into that agent's personal skill location and run `python3 <skill-dir>/scripts/kaspi.py --help`. Always resolve the script relative to `SKILL.md`, not the user's current project directory.
 
 Python 3.10 or newer is required. The core code uses standard-library APIs. Windows does not ship an IANA timezone database, so install the data package once with `python -m pip install tzdata`; macOS and mainstream Linux distributions normally provide it through the operating system. Official QR capture additionally requires [agent-browser](https://github.com/vercel-labs/agent-browser); use `--qr-mode none` when it is not installed.
 
@@ -141,7 +146,7 @@ See [docs/architecture.md](docs/architecture.md) for the data flow and trust bou
 
 **How do I search Kaspi products with an AI agent?**
 
-Install the repository with `npx skills add sw1pp3r/kaspi-skill -g -a codex -y`, then invoke `$kaspi` with the product, budget, hard constraints, city, and deadline. The skill runs several query variants, verifies finalists at seller level, and returns three to six comparable rows instead of a long unranked search dump.
+Install the repository with `npx skills add sw1pp3r/kaspi-skill -g -a claude-code codex -y`, then invoke `/kaspi` in Claude Code or `$kaspi` in Codex with the product, budget, hard constraints, city, and deadline. The skill runs several query variants, verifies finalists at seller level, and returns three to six comparable rows instead of a long unranked search dump.
 
 **Where does Kaspi Skill store my location?**
 
@@ -185,4 +190,4 @@ MIT. See [LICENSE](LICENSE).
 
 ---
 
-<sub><strong>Keywords:</strong> kaspi, kaspi.kz, agent skill, codex skill, python cli, kazakhstan shopping, live product search, seller verification, delivery date, price comparison, marketplace research, product shortlist, official qr code, shopping assistant, ecommerce, russian language, almaty delivery, model deduplication, specification comparison, agent-browser.</sub>
+<sub><strong>Keywords:</strong> kaspi, kaspi.kz, agent skill, claude code skill, codex skill, python cli, kazakhstan shopping, live product search, seller verification, delivery date, price comparison, marketplace research, product shortlist, official qr code, shopping assistant, ecommerce, russian language, almaty delivery, model deduplication, specification comparison, agent-browser.</sub>

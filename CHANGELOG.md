@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-07-23
+
+### Fixed
+
+- Make CLI import and `--help` work in read-only agent sandboxes by resolving the QR cache only when QR output is requested.
+- Document and test one-command installation, discovery, and explicit invocation in both Claude Code and Codex.
+
 ## [0.1.0] - 2026-07-23
 
 ### Added
@@ -18,5 +25,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Official Kaspi app QR capture with a privacy-preserving fallback contract.
 - Fixture-backed tests, cross-platform CI, security and contribution guidance.
 
-[Unreleased]: https://github.com/sw1pp3r/kaspi-skill/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/sw1pp3r/kaspi-skill/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/sw1pp3r/kaspi-skill/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/sw1pp3r/kaspi-skill/releases/tag/v0.1.0

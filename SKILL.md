@@ -1,11 +1,11 @@
 ---
 name: kaspi
-description: Live product search, seller-level delivery verification, decision-ready comparison, and official Kaspi app QR codes. Use when the user invokes /kaspi or $kaspi; says "найди на Каспи", "подбери на Kaspi", or "сравни товары"; asks what can arrive today, tomorrow, by express, or by a date; wants the current price, availability, shortlist, or best-value choice on Kaspi in Kazakhstan; or wants to test how Kaspi product results render in Codex.
+description: Live Kaspi product search, seller-level delivery verification, decision-ready comparison, and official app QR codes for Claude Code and Codex. Use when the user invokes /kaspi or $kaspi; says "найди на Каспи", "подбери на Kaspi", or "сравни товары"; asks what can arrive today, tomorrow, by express, or by a date; or wants a current price, availability check, shortlist, or best-value choice on Kaspi in Kazakhstan.
 ---
 
 # Kaspi
 
-Find current Kaspi listings and return a small, verified shortlist. Price, seller, stock, and delivery are live and location-sensitive. Reply in the user's language; default to Russian for Eugene.
+Find current Kaspi listings and return a small, verified shortlist. Price, seller, stock, and delivery are live and location-sensitive. Reply in the user's language; use Russian when the request is in Russian.
 
 ## Default workflow
 
@@ -30,7 +30,9 @@ Never silently relax the gate. Put missed-deadline options under `Можно п�
 
 ## CLI
 
-Resolve `scripts/kaspi.py` relative to this skill directory. The decision-ready command is:
+Resolve `scripts/kaspi.py` relative to the directory containing this `SKILL.md`. Do not assume the user's current working directory contains the script. The examples below use a relative path for readability; use the resolved absolute path when executing them outside the skill directory.
+
+The decision-ready command is:
 
 ```bash
 python3 scripts/kaspi.py shortlist \
@@ -83,7 +85,7 @@ CLI flags override the saved profile. `--no-zone` broadens discovery, but delive
 4. captures its 160×160 QR canvas together with the Kaspi logo;
 5. returns `qrLocalPath`, `qrMarkdown`, `qrTargetUrl`, `qrKind=kaspi_official_app`, and `qrEvidence=kaspi_product_modal`.
 
-Embed `qrMarkdown` exactly as returned. It must be an absolute local PNG path. Do not emit remote QR Markdown or relabel a generic QR as official. `--qr-mode fallback` is an explicit generic public-web-URL fallback for diagnostics only; `--qr-mode none` disables QR. If official capture fails, keep the clickable product link and report `qrError`.
+Embed `qrMarkdown` exactly as returned. It must be an absolute local PNG path. In a terminal that cannot render local images, keep the Markdown path and the clickable product link. Do not emit remote QR Markdown or relabel a generic QR as official. `--qr-mode fallback` is an explicit generic public-web-URL fallback for diagnostics only; `--qr-mode none` disables QR. If official capture fails, keep the clickable product link and report `qrError`.
 
 The QR and location profile never contain an exact address, cookie, token, or session parameter. The official QR target contains the public product, city code, and Kaspi's `referrer=desktop_QR` only. `agent-browser` is required for official visual capture; search and seller checks otherwise use the Python standard library.
 

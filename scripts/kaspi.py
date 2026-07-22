@@ -34,7 +34,6 @@ DEFAULT_CITY_CODE = "750000000"
 DEFAULT_ZONE = "Magnum_ZONE1"
 DEFAULT_CITY_NAME = "Алматы"
 DEFAULT_TIMEZONE = "Asia/Almaty"
-DEFAULT_QR_DIR = Path(tempfile.gettempdir()) / "kaspi-qr"
 RUSSIAN_MONTHS = (
     "",
     "января",
@@ -259,6 +258,23 @@ def _run_agent_browser(session: str, *arguments: str, timeout: float) -> str:
     return result.stdout.strip()
 
 
+def _qr_output_directory(output_dir: str | None) -> Path:
+    """Resolve the QR cache lazily so read-only agents can still import the CLI."""
+    try:
+        directory = (
+            Path(output_dir).expanduser()
+            if output_dir
+            else Path(tempfile.gettempdir()) / "kaspi-qr"
+        )
+        directory.mkdir(parents=True, exist_ok=True)
+    except OSError as exc:
+        raise RuntimeError(
+            "Could not create the QR output directory; pass --qr-output-dir "
+            "with a writable path or use --qr-mode none"
+        ) from exc
+    return directory
+
+
 def _capture_official_qr(
     item: dict[str, Any],
     output_dir: str | None = None,
@@ -268,8 +284,7 @@ def _capture_official_qr(
     if not product_url:
         return None
     city_code = str(item.get("cityCode") or dict(parse_qsl(urlsplit(product_url).query)).get("c") or DEFAULT_CITY_CODE)
-    directory = Path(output_dir or DEFAULT_QR_DIR).expanduser()
-    directory.mkdir(parents=True, exist_ok=True)
+    directory = _qr_output_directory(output_dir)
     digest = hashlib.sha256((product_url + "|official-app-qr-v2").encode("utf-8")).hexdigest()[:20]
     path = (directory / f"kaspi-official-{digest}.png").absolute()
     short_url = _official_qr_target(product_url, city_code, timeout)
@@ -369,8 +384,7 @@ def _materialize_local_qr(
     if not product_url or not qr_url:
         return None
 
-    directory = Path(output_dir or DEFAULT_QR_DIR).expanduser()
-    directory.mkdir(parents=True, exist_ok=True)
+    directory = _qr_output_directory(output_dir)
     digest = hashlib.sha256(product_url.encode("utf-8")).hexdigest()[:20]
     path = (directory / f"kaspi-{digest}.png").absolute()
     if not path.exists() or not path.read_bytes().startswith(b"\x89PNG\r\n\x1a\n"):

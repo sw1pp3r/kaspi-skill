@@ -88,7 +88,7 @@ class QrTests(unittest.TestCase):
     def test_lookalike_domain_is_rejected(self) -> None:
         self.assertIsNone(kaspi._public_product_url("https://evilkaspi.kz/p/123", "750000000"))
 
-    def test_markdown_rows_materialize_local_png_for_codex(self) -> None:
+    def test_markdown_rows_materialize_local_png_for_agents(self) -> None:
         png = b"\x89PNG\r\n\x1a\nfixture"
         fetched_urls: list[str] = []
 

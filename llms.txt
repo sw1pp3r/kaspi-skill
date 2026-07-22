@@ -27,8 +27,10 @@ The CLI queries Kaspi's public product-search response with a city and optional 
 
 ## Install
 
-- `npx skills add sw1pp3r/kaspi-skill -g -a codex -y`
-- `git clone https://github.com/sw1pp3r/kaspi-skill.git ~/.codex/skills/kaspi`
+- Claude Code + Codex: `npx skills add sw1pp3r/kaspi-skill -g -a claude-code codex -y`
+- Claude Code invocation: `/kaspi`
+- Codex invocation: `$kaspi`
+- Manual locations: `~/.claude/skills/kaspi` for Claude Code and `~/.agents/skills/kaspi` for Codex.
 
 ## Contributing and support
 
