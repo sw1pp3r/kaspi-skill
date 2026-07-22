@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">Kaspi Skill star history zero state</title>
+  <desc id="desc">A flat chart showing that the new repository has no public star history yet.</desc>
+  <rect width="1200" height="360" rx="22" fill="#0b0d12"/>
+  <rect x="1" y="1" width="1198" height="358" rx="21" fill="none" stroke="#303440" stroke-width="2"/>
+  <text x="54" y="70" fill="#f5f7ff" font-family="Inter, -apple-system, sans-serif" font-size="30" font-weight="700">Star history</text>
+  <text x="54" y="108" fill="#9097a8" font-family="Inter, -apple-system, sans-serif" font-size="18">Waiting for the first public star · opens Star History</text>
+  <line x1="80" y1="282" x2="1140" y2="282" stroke="#343844" stroke-width="2"/>
+  <line x1="80" y1="150" x2="80" y2="282" stroke="#343844" stroke-width="2"/>
+  <line x1="80" y1="258" x2="1140" y2="258" stroke="#f14635" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="80" cy="258" r="7" fill="#f14635"/>
+  <text x="48" y="264" fill="#9097a8" font-family="ui-monospace, Menlo, monospace" font-size="16">0</text>
+  <text x="80" y="319" fill="#9097a8" font-family="ui-monospace, Menlo, monospace" font-size="15">public release</text>
+  <text x="1140" y="319" fill="#9097a8" font-family="ui-monospace, Menlo, monospace" font-size="15" text-anchor="end">today</text>
+</svg>

@@ -175,7 +175,9 @@ See [CONTRIBUTING.md](CONTRIBUTING.md). Bug reports and pull requests are welcom
 
 ## Star history
 
-[![Star History Chart](https://api.star-history.com/svg?repos=sw1pp3r/kaspi-skill&type=Date)](https://star-history.com/#sw1pp3r/kaspi-skill&Date)
+[![Star History Chart](assets/star-history-zero.svg)](https://www.star-history.com/?repos=sw1pp3r%2Fkaspi-skill&type=date&legend=top-left)
+
+<sub>The external chart service has not indexed this new repository yet; this zero-state will be replaced with the live chart after the first public star.</sub>
 
 ## License
 
