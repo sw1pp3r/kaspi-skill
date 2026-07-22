@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <rect width="1280" height="720" rx="28" fill="#11131a"/>
+  <rect x="42" y="42" width="1196" height="636" rx="20" fill="#0b0d12" stroke="#343744" stroke-width="2"/>
+  <circle cx="78" cy="78" r="8" fill="#ff5f57"/><circle cx="104" cy="78" r="8" fill="#febc2e"/><circle cx="130" cy="78" r="8" fill="#28c840"/>
+  <text x="640" y="85" fill="#8a92a8" font-family="Menlo, monospace" font-size="20" text-anchor="middle">kaspi-skill · decision-ready shortlist</text>
+  <text x="82" y="150" fill="#f5f7ff" font-family="Menlo, monospace" font-size="30" font-weight="700">Подходит по доставке</text>
+  <rect x="82" y="185" width="1116" height="1" fill="#292c37"/>
+  <text x="82" y="232" fill="#8a92a8" font-family="Menlo, monospace" font-size="18">Товар</text>
+  <text x="610" y="232" fill="#8a92a8" font-family="Menlo, monospace" font-size="18">Цена</text>
+  <text x="790" y="232" fill="#8a92a8" font-family="Menlo, monospace" font-size="18">Доставка</text>
+  <text x="82" y="282" fill="#79d7ee" font-family="Menlo, monospace" font-size="20">Brother DCP-L2640DWR</text>
+  <text x="610" y="282" fill="#f5f7ff" font-family="Menlo, monospace" font-size="20">94 990 ₸</text>
+  <text x="790" y="282" fill="#77e2a2" font-family="Menlo, monospace" font-size="20">24 июля, seller API</text>
+  <rect x="82" y="315" width="1116" height="1" fill="#20232c"/>
+  <text x="82" y="362" fill="#79d7ee" font-family="Menlo, monospace" font-size="20">Pantum M6500NW</text>
+  <text x="610" y="362" fill="#f5f7ff" font-family="Menlo, monospace" font-size="20">79 890 ₸</text>
+  <text x="790" y="362" fill="#77e2a2" font-family="Menlo, monospace" font-size="20">24 июля, seller API</text>
+  <rect x="82" y="410" width="1116" height="108" rx="14" fill="#2b1a1b" stroke="#f14635"/>
+  <text x="108" y="450" fill="#ff7667" font-family="Menlo, monospace" font-size="20" font-weight="700">Мой выбор: Brother DCP-L2640DWR</text>
+  <text x="108" y="490" fill="#f5c1ba" font-family="Menlo, monospace" font-size="18">Тише, точно в бюджете, продавец и дата подтверждены.</text>
+  <text x="82" y="590" fill="#8a92a8" font-family="Menlo, monospace" font-size="20">Проверено: 23 июля 2026, 00:42 Asia/Almaty</text>
+  <text x="82" y="635" fill="#8a92a8" font-family="Menlo, monospace" font-size="18">Clickable product links + optional official Kaspi app QR</text>
+</svg>
